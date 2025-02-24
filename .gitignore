@@ -39,3 +39,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Strapi specific (防止推送 Strapi 运行时文件)
+/.cache
+/.tmp
+/database
+/public/uploads
+
+# SQLite database file (如果你使用 SQLite)
+/data.db
+
+# Prisma
+/prisma/dev.db
+/prisma/dev.db-journal
+/prisma/migrations/
+
+# SQLite
+*.sqlite
+*.sqlite-journal
