@@ -1,10 +1,12 @@
-// app/page.tsx
-import {Button} from '@heroui/button'; 
+import SignInButton from '@/components/sign-button'
+import UserInfo from '@/components/user-info'
+import React from 'react'
 
 export default function Page() {
   return (
     <div>
-      <Button color='primary'>Click me</Button>
+      <UserInfo />
+      <SignInButton />
     </div>
   )
 }

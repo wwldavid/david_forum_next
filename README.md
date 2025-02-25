@@ -21,4 +21,8 @@
 11. create auth.ts file under src
 12. Add a Route Handler under /app/api/auth/[...nextauth]/route.ts
 13. create middleware.ts under src
-14.
+
+-- Github OAuth login
+
+14. Register OAuth App in GitHub's dashboard
+    Go to the GitHub developer settings, also found under Settings → Developers → OAuth Apps, and click “New OAuth App”
