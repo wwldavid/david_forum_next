@@ -26,3 +26,13 @@
 
 14. Register OAuth App in GitHub's dashboard
     Go to the GitHub developer settings, also found under Settings → Developers → OAuth Apps, and click “New OAuth App”
+
+-- Record OAuth authentication information to database
+
+15. pnpm add @prisma/client @auth/prisma-adapter
+16. pnpm add prisma --save-dev
+17. pnpm approve-builds
+18. npx prisma init --datasource-provider sqlite
+    update schema.prisma (prisma/schema-sqlite.prisma)(https://authjs.dev/getting-started/adapters/prismanpx)
+19. npx prisma db push (created SQLite database dev.db)
+20. npx prisma generate (Generated Prisma Client)
