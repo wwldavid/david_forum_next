@@ -36,3 +36,7 @@
     update schema.prisma (prisma/schema-sqlite.prisma)(https://authjs.dev/getting-started/adapters/prismanpx)
 19. npx prisma db push (created SQLite database dev.db)
 20. npx prisma generate (Generated Prisma Client)
+
+-- zod check topic
+
+21. pnpm i zod
