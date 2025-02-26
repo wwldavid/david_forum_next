@@ -1,5 +1,6 @@
-import { auth } from "@/auth";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, Input, Avatar} from "@heroui/react";
+import { auth, signIn, signOut } from "@/auth";
+import * as actions from '@/actions'
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Popover, PopoverTrigger, PopoverContent, Button, Input, Avatar} from "@heroui/react";
 
 export const AcmeLogo = () => {
   return (
@@ -18,18 +19,33 @@ export default async function Header() {
   const session = await auth()
   let authContent: React.ReactNode
   if(session?.user){
-     authContent = <Avatar  src={session.user.image || "https://i.pravatar.cc/150?u=a042581f4e29026024d"} />
+     authContent = (
+      <Popover placement="bottom" >
+        <PopoverTrigger>
+     <Avatar  src={session.user.image || "https://i.pravatar.cc/150?u=a042581f4e29026024d"} />
+     </PopoverTrigger>
+     <PopoverContent>
+      <form className="p-4" action={actions.signOut}>
+        <button type="submit" >logout</button>
+      </form>
+     </PopoverContent>
+     </Popover>
+    )
   } else {
     authContent = <>
        <NavbarItem className="hidden lg:flex">
-        <Button as={Link} color="secondary" href="#" variant="bordered">
+       <form action={actions.signIn} >
+          <Button type="submit" color="secondary" href="#" variant="bordered">
             Sign In
           </Button>
+       </form>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="secondary" href="#">
+        <form action={actions.signIn} >
+          <Button type="submit" color="secondary" href="#">
             Sign Up
           </Button>
+          </form>
         </NavbarItem>
     </>
   }
