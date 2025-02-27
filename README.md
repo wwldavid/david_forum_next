@@ -40,3 +40,8 @@
 -- zod check topic
 
 21. pnpm i zod
+
+--
+
+22. npx prisma db push (database is now in sync with Prisma)
+23. npx prisma generate (Generate Prisma Client)
