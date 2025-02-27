@@ -19,7 +19,7 @@ export default function TopicCreateForm() {
             <Button color="primary" variant='bordered'>Create a Topic</Button>
         </PopoverTrigger>
         <PopoverContent>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} noValidate>
           <div className='flex flex-col gap-4 p-4 w-80'>
             <h3 className='text-lg' >Create a Topic</h3>
             <Input name='name' label="Name" labelPlacement='outside' placeholder='name' isInvalid = {!!state.errors.name} errorMessage = {state.errors.name?.join(', ')} />
