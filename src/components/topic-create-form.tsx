@@ -1,5 +1,5 @@
 'use client'
-import { Button, Popover, PopoverTrigger, PopoverContent, Input, Textarea } from '@heroui/react'
+import { Button, Popover, PopoverTrigger, PopoverContent, Input, Textarea, Chip } from '@heroui/react'
 import React, { startTransition, useActionState } from 'react'
 import * as actions from '@/actions'
 
@@ -24,6 +24,7 @@ export default function TopicCreateForm() {
             <h3 className='text-lg' >Create a Topic</h3>
             <Input name='name' label="Name" labelPlacement='outside' placeholder='name' isInvalid = {!!state.errors.name} errorMessage = {state.errors.name?.join(', ')} />
             <Textarea name='description' label="Description" labelPlacement='outside' placeholder='describe your topic' isInvalid = {!!state.errors.description} errorMessage = {state.errors.description?.join(', ')}/>
+             {state.errors._form ? <Chip variant='bordered' radius='sm' className='max-w-full' >{state.errors._form.join(', ')}</Chip> : null }
             <Button type="submit">Submit</Button>
           </div>
           </form>
