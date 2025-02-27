@@ -20,6 +20,10 @@ model User {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  topics   Topic[]
+  posts    Post[]
+  comments Comment[]
 }
 
 model Account {
@@ -85,6 +89,10 @@ model Topic {
   description String
   createdAt   DateTime @default(now())
   upDatedAt   DateTime @updatedAt
+  User        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+
+  posts Post[]
 }
 
 model Post {
@@ -93,6 +101,12 @@ model Post {
   content   String
   createdAt DateTime @default(now())
   upDatedAt DateTime @updatedAt
+  User      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  Topic     Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  topicId   String
+
+  comments Comment[]
 }
 
 model Comment {
@@ -100,4 +114,8 @@ model Comment {
   content   String
   createdAt DateTime @default(now())
   upDatedAt DateTime @updatedAt
+  User      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  Post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    String
 }
